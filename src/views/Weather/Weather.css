@@ -1,0 +1,101 @@
+.titleWeather {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+hr.divider {
+    border: 0;
+    border-top: 2px dashed black;
+}
+#weatherDivider {
+    width: 50%;
+}
+
+.weatherResults {
+    padding: 5px;
+    border-radius: 25px;
+    width: 50%;
+    margin: auto;
+}
+
+#location {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+#currentWeather {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+#tempurature {
+    padding: 10px;
+}
+
+.image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputSearch {
+    width: 15vw;
+    height: 2vw;
+    font-size: 1.5em;
+    border: 0;
+    border-bottom: solid black 1px;
+    background: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 7px;
+}
+
+#inputSearch:focus {
+    outline: 0;
+}
+
+#labelField {
+    font-size: 1.25em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#searchButton {
+    width: 7vw;
+    height: 2vw;
+    margin-left: 25px;
+    font-size: 1.25em;
+    border-radius: 10px;
+    background-color:lightgray;
+    transition-duration: .4s;
+    border: 0;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#searchButton:hover {
+    background-color: darkgray;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+
+
+#forecastDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#weatherDiv {
+    background-color:lightslategrey;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 15px 10px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:lightgray;
+    min-width: 12vw;
+}
+
+#hourlyForecastDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

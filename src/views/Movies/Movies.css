@@ -1,0 +1,11 @@
+#moviePoster {
+    width: 250px;
+    height: 300px;
+}
+
+#allMovies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
