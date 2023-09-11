@@ -1,11 +1,17 @@
 <template>
     <h1 class="titleWeather">What is the weather?</h1>
 
-    <div id="form" class="formGroup field">
+    <div id="inputForm" class="formGroup field">
+        <div class="inputFormItem">
         <label id="labelField" for="townSearchField">Enter town: </label>
+        </div>
+        <div class="inputFormItem">
         <input type="text" placeholder="ex: Miami" v-model="townSearch" v-on:keyup.enter="fetchData" id="inputSearch"
-            name="townSearchField">
+            name="townSearchField">    
+        </div>
+        <div class="inputFormItem">
         <button @click="fetchData" id="searchButton">Enter</button>
+        </div>
     </div>
 
 
@@ -53,6 +59,7 @@
         </div> -->
 
         <hr class="divider" id="weatherDivider">
+
         <div id="weatherForecast">
             <h2 class="titleWeather">3-Day Forecast</h2>
             <div id="forecastDiv">

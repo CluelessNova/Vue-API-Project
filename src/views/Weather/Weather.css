@@ -5,8 +5,9 @@ hr.divider {
     border: 0;
     border-top: 2px dashed black;
 }
-#weatherDivider {
-    width: 50%;
+
+.inputFormItem {
+    margin: 10px;
 }
 
 .weatherResults {
@@ -14,6 +15,16 @@ hr.divider {
     border-radius: 25px;
     width: 50%;
     margin: auto;
+}
+
+.image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#weatherDivider {
+    width: 50%;
 }
 
 #location {
@@ -28,13 +39,6 @@ hr.divider {
 
 #tempurature {
     padding: 10px;
-}
-
-.image {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 }
 
 #inputSearch {
@@ -76,10 +80,20 @@ hr.divider {
     cursor: pointer;
 }
 
+#searchButton:active {
+    transform: scale(.98);
+    box-shadow: 3px 2px 22px 1px rgba(0,0,0,0.24);
+}
+
+#searchButton:active {
+    transform: scale(.98);
+    box-shadow: 3px 2px 22px 1px rgba(0,0,0,0.24);
+}
 
 #forecastDiv {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -87,6 +101,7 @@ hr.divider {
 #weatherDiv {
     background-color:lightslategrey;
     padding: 10px;
+    margin: 15px;
     border-radius: 25px;
     box-shadow: 1px 1px 15px 10px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -98,4 +113,21 @@ hr.divider {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+#inputForm {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 410px){
+    #inputSearch {
+        width: 175px;
+    }
+
 }
