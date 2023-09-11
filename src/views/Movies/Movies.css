@@ -9,3 +9,49 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+#inputSearch {
+    width: 300px;
+}
+#searchButton {
+    width: 70px;
+    height: 30px;
+    margin-left: 25px;
+    font-size: 1.25em;
+    border-radius: 10px;
+    background-color:lightgray;
+    transition-duration: .4s;
+    border: 0;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#searchButton:hover {
+    background-color: darkgray;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+
+#searchButton:active {
+    transform: scale(.98);
+    box-shadow: 3px 2px 22px 1px rgba(0,0,0,0.24);
+}
+
+#inputForm {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.inputFormItem {
+    margin: 10px;
+}
+
+@media screen and (max-width: 410px){
+    #inputSearch {
+        width: 175px;
+    }
+}
