@@ -1,6 +1,10 @@
 import { ref } from "vue";
+import ProjectsNavBarVue from "@/components/ProjectsNavBar.vue";
 
 export default {
+    components: {
+        ProjectsNavBarVue
+    },
     data() {
         return {
             movieSearch: "",

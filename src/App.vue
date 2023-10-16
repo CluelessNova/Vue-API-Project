@@ -1,11 +1,7 @@
 <template>
-  <nav>
-    <router-link :to="{ name: 'home' }">Home</router-link> |
-    <router-link :to="{ name: 'about' }">About</router-link> |
-    <router-link :to="{ name: 'weather' }">Weather</router-link> |
-    <router-link :to="{ name: 'movies' }">Movies</router-link> 
-  </nav>
+  <NavBar></NavBar>
   <router-view/>
+  <!-- <footer id="footer">Test</footer> -->
 </template>
 
 <style>
@@ -17,16 +13,20 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+#footer {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
 }
 </style>
+
+<script lang="ts">
+import NavBar from './components/NavigationBar.vue'
+
+export default {
+  components: {
+    NavBar
+  }
+}
+</script>

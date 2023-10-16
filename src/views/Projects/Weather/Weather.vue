@@ -1,6 +1,6 @@
 <template>
+    <ProjectsNavBarVue></ProjectsNavBarVue>
     <h1 class="titleWeather">What is the weather?</h1>
-
     <div id="inputForm" class="formGroup field">
         <div class="inputFormItem">
         <label id="labelField" for="townSearchField">Enter town: </label>
@@ -102,6 +102,4 @@
 </template>
 
 <script src="./Weather.ts" lang="ts"></script>
-<style src="./Weather.css">
-
-</style>
+<style src="./Weather.css"></style>

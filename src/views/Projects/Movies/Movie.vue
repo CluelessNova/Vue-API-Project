@@ -1,4 +1,5 @@
 <template>
+    <ProjectsNavBarVue></ProjectsNavBarVue>
     <h1>Movies</h1>
 
     <div id="inputForm" class="formGroup field">
