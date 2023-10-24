@@ -1,4 +1,5 @@
 <template>
+    <div id="allContent">
     <ProjectsNavBarVue></ProjectsNavBarVue>
     <h1 class="titleWeather">What is the weather?</h1>
     <div id="inputForm" class="formGroup field">
@@ -98,6 +99,7 @@
             </div>
         </div>
         
+    </div>
     </div>
 </template>
 

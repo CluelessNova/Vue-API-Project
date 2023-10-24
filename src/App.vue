@@ -6,19 +6,23 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
+  font-family: Playfair;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-#footer {
-  display: flex;
-  justify-content: center;
-  position: sticky;
-  bottom: 0;
-}
+/* #footer {
+  clear: both;
+  position: relative;
+  height: 10px;
+  margin-top: 100px;
+  font-size: 1.5rem;
+  color: #362a6c;
+  text-align: center;
+} */
 </style>
 
 <script lang="ts">

@@ -1,12 +1,16 @@
 <template>
   <div id="aboutMe">
     <div id="aboutMe-container">
-      <h1 class="aboutMe-content" id="myName">Hello, I am Jake Levinsky</h1>
+      <div id="changingName">
+        <transition name="fade" mode="out-in">
+        <h1 class="aboutMe-content myName"><span :key="displayText" style="font-weight: bold;">{{ this.displayText }}</span> Jake Levinsky</h1>
+        </transition>
+      </div>
       <h1 class="aboutMe-content" id="myDescription">
-        A back-end focused software engineer building APIs and server-side applicaitons
+        <p id="myDescription-first"></p>
         <br>
         <br>
-        Experience with front-end development and web application development
+        <p id="myDescription-second"></p>
       </h1>
     </div>
   </div>
@@ -16,35 +20,5 @@
   </div>
 </template>
 
-<style>
-.aboutMe-container {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-}
-
-.aboutMe-content {
-  margin: 1 auto;
-  /* border: 1px solid black; */
-}
-
-#myName {
-  font-size: 3em;
-}
-
-#myDescription {
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#aboutMe {
-  display:flex;
-  justify-content: space-around;
-  /* border: 1px solid black; */
-}
-</style>
-
-<script lang="ts">
-
-</script>
+<style src="./HomeView.css"></style>
+<script src="./HomeView.ts"></script>

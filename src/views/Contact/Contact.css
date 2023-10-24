@@ -1,0 +1,84 @@
+#allContent{
+    color: #362a6c;
+}
+.contactForm-item {
+    width: 20rem;
+    /* border: 1px solid black; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contactForm-label {
+    float: left;
+}
+
+#contactForm-container {
+    /* border: 1px solid black; */
+    padding: 5em;
+}
+
+#contactForm {
+    width: 30rem;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    /* border: 1px solid black; */
+    box-shadow: 0 0 15px 5px #6075ec6d;
+    display: flex;
+    flex-direction: column;
+    background: #cbe6ed;
+}
+
+#contactForm-name {
+    font-size: 1.5em;
+}
+
+#contactForm-email {
+    font-size: 1.5em;
+}
+
+#contactForm-message {
+    font-size: 1.5em;
+}
+
+.inputForm {
+    font-family: Libre;
+}
+
+#inputForm-name {
+    float: left;
+    font-size: .75em;
+}
+
+#inputForm-email {
+    float: left;
+    font-size: .75em;
+}
+
+#inputForm-message {
+    width: 100%;
+    height: 8rem;
+    font-size: .75em;
+}
+
+#inputForm-submit {
+    width: 5rem;
+    height: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: #eb3361;
+    color: #f8fcf7;
+    border-radius: .25rem;
+    border: #eb3361;
+    transition-duration: .5s;
+}
+
+#inputForm-submit:hover {
+    box-shadow: 0 0 12px #eb3361;
+}
+
+#inputForm-submit:active {
+    box-shadow: 0 5px #eb3361;
+    transform: translateY(4px);
+}

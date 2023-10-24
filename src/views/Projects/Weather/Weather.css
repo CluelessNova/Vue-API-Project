@@ -1,9 +1,15 @@
+#allContent {
+    color: #362a6c;
+}
+
 .titleWeather {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 hr.divider {
     border: 0;
     border-top: 2px dashed black;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .inputFormItem {

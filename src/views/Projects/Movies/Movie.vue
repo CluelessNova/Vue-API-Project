@@ -1,4 +1,5 @@
 <template>
+    <div id="allContent">
     <ProjectsNavBarVue></ProjectsNavBarVue>
     <h1>Movies</h1>
 
@@ -26,6 +27,7 @@
                 </div>
             </b-card>
         </div>
+    </div>
     </div>
 </template>
 

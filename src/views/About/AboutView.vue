@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div id="allContent">
+  <div id="pageTitle">
     <h1>Who am I?</h1>
     
     <h3>Here will go over myself, my experience, skills, and what I do</h3>
@@ -11,7 +12,7 @@
       <div class="aboutme-content-detail">
         <p class="aboutme-description">I am a <strong>software engineer</strong> that works on the <strong>back-end</strong> of web and application development.</p>
         <p class="aboutme-description">I'm an <strong>Eagle Scout</strong> since 2018 and I volunteer at my home town ambulance agency as an EMT.</p>
-        <p class="aboutme-description">I am open for any opportunity to learn and expand my knowledge and experience. If you'd like to connect through my <a href="https://www.linkedin.com/in/jakelevinsky/">LinkedIn</a>, feel free to reach out. </p>
+        <p class="aboutme-description">I am open for any opportunity to learn and expand my knowledge and experience. If you'd like to connect through my <a id="linkedIn" href="https://www.linkedin.com/in/jakelevinsky/">LinkedIn</a>, feel free to reach out. </p>
       </div>
     </div>
 
@@ -33,11 +34,14 @@
     </div>
   </div>
 
-  <div id="timeline-container">
-    <h1>Timeline of experience and accomplishments</h1>
-    <div>
-      <ol>
-        <li>
+  <div class="wavyArrow">
+    <div class="topOfArrow"></div>
+  </div>
+  
+  <div id="allTimeline">
+    <h1 id="timelineTitle">Timeline of experience and accomplishments</h1>
+  <div id="timeline">
+        <div class="timeline-container left">
           <div class="timeline-list-item">
             <div class="timeline-list-date">
               <h5>August 2022 - Present</h5>
@@ -54,16 +58,12 @@
                   system to optimize reporting.</ul> 
             </div>
           </div>
-        </li>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <li> 
+        </div>
+
+        <div class="timeline-container right"> 
           <div class="timeline-list-item">
             <div class="timeline-list-date">
-              <h5>January 2021 - March 2022</h5>
+              <h5>December 2021 - March 2022</h5>
             </div>
             <div class="timeline-list-desc">
               <p class="company-title">College Senior Project</p>
@@ -74,13 +74,9 @@
               <ul class="list-desc-item">Taught myself Python and Django to complete the project.</ul>
             </div>
           </div>
-        </li>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <li> 
+        </div>
+
+        <div class="timeline-container left"> 
           <div class="timeline-list-item">
             <div class="timeline-list-date">
               <h5>July 2021 - January 2023</h5>
@@ -92,13 +88,9 @@
                 protocols.</ul>
             </div>
           </div>
-        </li>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <li> 
+        </div>
+
+        <div class="timeline-container right"> 
           <div class="timeline-list-item">
             <div class="timeline-list-date">
               <h5>August 2018 - May 2022</h5>
@@ -113,15 +105,9 @@
               <ul class="list-desc-item">Learned languages such as Java and JavaScript, technologies such as HTML and CSS, and how to create git repositories and contribute to them.</ul>
             </div>
           </div>
-        </li>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <li> 
+        </div>
+
+        <div class="timeline-container left"> 
           <div class="timeline-list-item">
             <div class="timeline-list-date">
               <h5>June 2018 - Present</h5>
@@ -134,100 +120,11 @@
                 create a fun and informative environment for the scouts to learn.</ul>
             </div>
           </div>
-        </li>      
-      </ol>
+        </div>      
     </div>
   </div>
+  <div class="endOfArrow"></div>
+</div>
 </template>
 
-<style>
-body{
-  overflow-y: scroll;
-}
-
-ol {
-  list-style: none;
-}
-
-.aboutme-content {
-  width: 40%;
-}
-
-.aboutme-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.aboutme-description {
-  font-size: 1.5rem;
-}
-
-.aboutme-title {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.aboutme-skills {
-  padding: 1rem 2rem;
-  margin-bottom: 1.5rem;
-  margin-right: 1.5rem;
-  font-size: 1.15em;
-  border-radius: 15px;
-  background-color: darkgray;
-  color: black;
-  box-shadow: 7px 5px 20px;
-  font-weight: 600;
-}
-
-.timeline-list-item {
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  /* border: 1px solid black; */
-}
-
-.timeline-list-date {
-  /* border: 1px solid black; */
-  margin: 15px;
-}
-
-.timeline-list-desc {
-  /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  text-align: left;
-}
-
-.companyName {
-  display: flex;
-  margin: 5px;
-  justify-content: flex-start;
-}
-.company-title {
-  display: flex;
-  margin: 5px;
-  justify-content: flex-start;
-}
-
-.list-desc-item {
-  margin: 5px;
-}
- 
-#skills {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#timeline-container {
-  /* border: 1px solid black; */
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 300px;
-}
-
-</style>
+<style src="./AboutView.css"></style>

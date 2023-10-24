@@ -1,0 +1,17 @@
+h1 {
+    font-size: 2.5em;
+}
+
+#blackholeImg {
+  animation: spin 10s linear infinite;
+  padding: 50px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
