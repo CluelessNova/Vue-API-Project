@@ -1,2 +1,2 @@
-# Vue.js API Project
-Side project learning how to use Vue.js and playing around with API's
+# Vue.js API and Portfolio Project
+My portfolio to show off my projects and skills
