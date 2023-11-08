@@ -15,8 +15,9 @@
         </div>
     </div>
 
+    <div class="loader" v-if="isLoading"></div>
 
-    <div v-if="responseAvailable == true">
+    <div v-if="weatherForecast && !isLoading">
         <div id="location" class="weatherResults">
             <!-- City, State/Region, Country -->
             <h2>

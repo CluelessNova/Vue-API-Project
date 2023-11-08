@@ -15,7 +15,9 @@
         </div>
     </div>
 
-    <div v-if="responseAvailable == true" id="allMovies">
+    <div class="loader" v-if="isLoading"></div>
+
+    <div v-if="movieResults && !isLoading" id="allMovies">
         <div v-for="movies in movieResults">
             <b-card>
                 <b-card-text>

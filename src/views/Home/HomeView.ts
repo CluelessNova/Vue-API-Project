@@ -1,8 +1,8 @@
-import axios from "axios";
-
 export default {
     data() {
       return {
+        typeWriterTimeout: null,
+        toggleTextInterval: null,
         i: 0,
         j: 0,
         firstText: 'A back-end focused software engineer building APIs and server-side applications',
@@ -16,14 +16,17 @@ export default {
     },
     methods: {
       typeWriter() {
-        if (this.i < this.firstText.length) {
-          document.getElementById("myDescription-first").innerHTML += this.firstText.charAt(this.i);
+        const firstElement = document.getElementById("myDescription-first");
+        const secondElement = document.getElementById("myDescription-second");
+
+        if (this.i < this.firstText.length && firstElement) {
+          firstElement.innerHTML += this.firstText.charAt(this.i);
           this.i++;
-          setTimeout(this.typeWriter, this.speed);
-        } else if (this.j < this.secondText.length) {
-          document.getElementById("myDescription-second").innerHTML += this.secondText.charAt(this.j);
+          this.typeWriterTimeout = setTimeout(this.typeWriter, this.speed);
+        } else if (this.j < this.secondText.length && secondElement) {
+          secondElement.innerHTML += this.secondText.charAt(this.j);
           this.j++;
-          setTimeout(this.typeWriter, this.speed);
+          this.typeWriterTimeout = setTimeout(this.typeWriter, this.speed);
         }
       },
       
@@ -38,13 +41,20 @@ export default {
     },
     
     mounted() {
-      setInterval(this.toggleText, 2000);
+      this.toggleTextInterval = setInterval(this.toggleText, 2000);
     },
 
     beforeRouteEnter(to, from, next) {
       next(vm => {
         vm.typeWriter(); // Call the function when entering the route
-        // vm.translate();
       });
     },
+    beforeDestroy() {
+      if (this.typeWriterTimeout) {
+        clearTimeout(this.typeWriterTimeout);
+      }
+      if (this.toggleTextInterval) {
+        clearInterval(this.toggleTextInterval);
+      }
+    }
   };
