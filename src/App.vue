@@ -1,32 +1,36 @@
 <template>
-  <nav>
-    <router-link :to="{ name: 'home' }">Home</router-link> |
-    <router-link :to="{ name: 'about' }">About</router-link> |
-    <router-link :to="{ name: 'weather' }">Weather</router-link> |
-    <router-link :to="{ name: 'movies' }">Movies</router-link> 
-  </nav>
+  <NavBar></NavBar>
   <router-view/>
+  <!-- <footer id="footer">Test</footer> -->
 </template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
+  font-family: Playfair;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+/* #footer {
+  clear: both;
+  position: relative;
+  height: 10px;
+  margin-top: 100px;
+  font-size: 1.5rem;
+  color: #362a6c;
+  text-align: center;
+} */
 </style>
+
+<script lang="ts">
+import NavBar from './components/NavigationBar.vue'
+
+export default {
+  components: {
+    NavBar
+  }
+}
+</script>
