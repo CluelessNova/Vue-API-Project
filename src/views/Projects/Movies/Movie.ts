@@ -9,56 +9,37 @@ export default {
     data() {
         return {
             isLoading: false,
+            errorLoad: false,
+            errorMessage: null,
             movieSearch: "",
-            movieResults: undefined,
-            API_Key: '876cde9a3amsh634ce99e10cfff1p104015jsn3ef4d14f414d',
+            movieResults: undefined
         }
     },
 
     methods: {
         async searchMovie() {
-            //Old method for API//
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': this.API_Key,
-                    'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
-                }
-            }
-
             const searchTimeout = ref(null)
+ 
             this.isLoading = true
+            this.errorLoad = false
             clearTimeout(searchTimeout.value)
-
-            if (this.searchMovie !== "") {
-                await fetch(`https://advanced-movie-search.p.rapidapi.com/search/movie?query=${this.movieSearch}&page=1`, options)
+            searchTimeout.value = setTimeout(async () => {
+                if (this.searchMovie !== "") {
+                    axios.get('https://api.jacoblevinsky.com/api/Movie/MovieLookup?name=' + this.movieSearch)
                     .then(response => {
-                        if (response.ok) {
-                            return response.json()
-                        } else {
-                            alert("Server Error " + response.status)
-                        }
-                    }).then(response => {
-                        this.movieResults = response.results
+                        this.movieResults = response.data.results
                         this.isLoading = false
-                    }).catch(err => console.error(err))
-                this.movieSearch = ""
-                return
-            }
-
-            //Change for when backend is up//
-
-            // searchTimeout.value = setTimeout(async () => {
-            //     if (this.searchMovie !== "") {
-            //         axios.get('https://localhost:44395/api/Movie/MovieLookup?name=' + this.movieSearch)
-            //         .then(response => {
-            //             this.movieResults = response.data.results
-            //             this.isLoading = false
-            //         }).catch(err => console.error(err))
-            //         this.movieSearch = ""
-            //         return
-            //     }
-            // }, 30)
+                        this.errorLoad = false
+                    }).catch(error => {
+                        console.error(error)
+                        this.errorMessage = error
+                        this.errorLoad = true
+                        this.isLoading = false
+                    })
+                    this.movieSearch = ""
+                    return
+                }
+            }, 30)
 
         }
     }

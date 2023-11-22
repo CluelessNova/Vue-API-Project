@@ -20,7 +20,7 @@
             </div>
             <div class="proj-desc">
                 <h2>Movie API</h2>
-                <p class="desc">Baisc movie lookup API that takes in a movie name and will display movies with those names.</p>
+                <p class="desc">Baisc movie lookup API that takes in a movie name and will display movies and posters with those names.</p>
                 <p class="desc">Free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> 
                     that takes in paramters and exports the data into a Json file. The file is then parsed and data is shown in a comprehensive
                     view for the user.
