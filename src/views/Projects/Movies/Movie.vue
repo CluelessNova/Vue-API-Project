@@ -17,6 +17,11 @@
 
     <div class="loader" v-if="isLoading"></div>
 
+    <div class="errorLoadDiv" v-if="!isloading && errorLoad">
+        <h2>Looks like there was an error and nothing was found</h2>
+        <h3> {{ errorMessage }}</h3>
+    </div>
+
     <div v-if="movieResults && !isLoading" id="allMovies">
         <div v-for="movies in movieResults">
             <b-card>

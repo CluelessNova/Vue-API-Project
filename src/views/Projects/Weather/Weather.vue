@@ -17,6 +17,11 @@
 
     <div class="loader" v-if="isLoading"></div>
 
+    <div class="errorLoadDiv" v-if="!isloading && errorLoad">
+        <h2>Looks like there was an error and nothing was found</h2>
+        <h3> {{ errorMessage }}</h3>
+    </div>
+    
     <div v-if="weatherForecast && !isLoading">
         <div id="location" class="weatherResults">
             <!-- City, State/Region, Country -->
