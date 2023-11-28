@@ -24,15 +24,15 @@
 
     <div v-if="movieResults && !isLoading" id="allMovies">
         <div v-for="movies in movieResults">
-            <b-card>
-                <b-card-text>
+            <div>
+                <div>
                     <h3>{{ movies.title }}</h3>
                     <p>{{ movies.release_date }}</p>
-                </b-card-text>
+                </div>
                 <div>
                     <img id="moviePoster" :src="movies.poster_path">
                 </div>
-            </b-card>
+            </div>
         </div>
     </div>
     </div>

@@ -6,32 +6,39 @@
   
   .aboutMe-content {
     margin: 1 auto;
-    /* border: 1px solid black; */
   }
   
   .myName {
-    font-size: 3em;
+    font-size: 3rem;
   }
   
   #myDescription {
-    width: 75%;
+    width: 65vw;
     margin-left: auto;
     margin-right: auto;
+    /* border: solid black 1px; */
+  }
+
+  #myDescription-first {
+    font-size: 4rem;
   }
   
+  #myDescription-second {
+    font-size: 4rem;
+  }
+
   #aboutMe {
     display:flex;
     justify-content: space-around;
     color: #362a6c;
-    padding: 5em;
-    /* border: 1px solid black; */
+    padding: 5rem;
   }
 
   #changingName {
    display: flex;
    flex-direction: row;
    justify-content:space-evenly;
-   width: 49.5rem;
+   width: 75vw;
    margin: 0 auto;
   }
 
@@ -41,7 +48,3 @@
   .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
     opacity: 0;
   }
-
-.glitch {
-  
-}  

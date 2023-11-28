@@ -38,46 +38,5 @@
     </div>
 </template>
 
-<style>
-.container {
-    padding: 2em;
-}
-
-.desc {
-    font-size: 1.25rem;
-    padding: .25rem;
-}
-
-.content-proj {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.proj-desc {
-    /* border: 1px solid black; */
-    width: 30vw;
-    padding: 1em;
-}
-
-.rapidApi_link {
-    color: inherit;
-    text-decoration: none;
-    font-weight: bold;
-    transition: .2s;
-}
-
-.rapidApi_link:hover {
-    color: #eb3361;
-}
-</style>
-
-<script lang="ts">
-import ProjectsNavBar from '@/components/ProjectsNavBar.vue';
-
-export default {
-    components: {
-        ProjectsNavBar
-    }
-}
-</script>
+<style src="./Projects.css"></style>
+<script lang="ts" src="./Projects"></script>

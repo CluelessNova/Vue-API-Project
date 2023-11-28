@@ -14,10 +14,6 @@
       </h1>
     </div>
   </div>
-
-  <div>
-    
-  </div>
 </template>
 
 <style src="./HomeView.css"></style>

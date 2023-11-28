@@ -19,18 +19,8 @@
     <div class="aboutme-content">
       <h2 class="aboutme-title">Skills</h2>
       <div id="skills">
-      <div class="aboutme-skills">C#</div>
-      <div class="aboutme-skills">Java</div>
-      <div class="aboutme-skills">Python</div>
-      <div class="aboutme-skills">JavaScript</div>
-      <div class="aboutme-skills">TypeScript</div>
-      <div class="aboutme-skills">HTML</div>
-      <div class="aboutme-skills">CSS</div>
-      <div class="aboutme-skills">Blazor</div>
-      <div class="aboutme-skills">VueJs</div>
-      <div class="aboutme-skills">GitHub</div>
-      <div class="aboutme-skills">MSSQL</div>
-    </div>
+        <div class="aboutme-skills" v-for="skill in skills"> {{ skill }} </div>
+      </div>
     </div>
   </div>
 
@@ -128,3 +118,4 @@
 </template>
 
 <style src="./AboutView.css"></style>
+<script lang="ts" src="./AboutView.ts"></script>

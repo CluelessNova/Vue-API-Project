@@ -35,7 +35,7 @@
 
 .nav-link {
   padding: 30px;
-  font-size: 1em;
+  font-size: 1.15rem;
 }
 
 .nav-link a {

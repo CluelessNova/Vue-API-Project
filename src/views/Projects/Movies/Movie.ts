@@ -25,7 +25,8 @@ export default {
             clearTimeout(searchTimeout.value)
             searchTimeout.value = setTimeout(async () => {
                 if (this.searchMovie !== "") {
-                    axios.get('https://api.jacoblevinsky.com/api/Movie/MovieLookup?name=' + this.movieSearch)
+                    //axios.get('https://api.jacoblevinsky.com/api/Movie/MovieLookup?name=' + this.movieSearch)
+                    axios.get('https://localhost:44395/api/Movie/MovieLookup?name=' + this.movieSearch)
                     .then(response => {
                         this.movieResults = response.data.results
                         this.isLoading = false
