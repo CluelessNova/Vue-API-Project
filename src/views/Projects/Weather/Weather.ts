@@ -2,14 +2,21 @@ import { ref } from "vue"
 import axios from "axios";
 import Skeleton from 'primevue/skeleton'
 import ProgressSpinner from 'primevue/progressspinner'
+import InputText from 'primevue/inputtext'
+import Button from 'primevue/button'
+import Dialog from 'primevue/dialog';
 
 export default {
     components:{
         Skeleton,
-        ProgressSpinner
+        ProgressSpinner,
+        InputText,
+        Button,
+        Dialog
     },
     data() {
         return {
+            showDialogHelp: false,
             isLoading: false,
             errorLoad: false,
             errorMessage: null,

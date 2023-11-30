@@ -1,16 +1,29 @@
 <template>
     <div id="allContent">
-    <h1 class="titleWeather">What is the weather?</h1>
-    <div id="inputForm" class="formGroup field">
-        <div class="inputFormItem">
-        <label id="labelField" for="townSearchField">Enter town: </label>
+
+    <div class="flex align-items-center justify-content-center">
+        <div class="m-2"><h1 class="">Forecast Search</h1></div>
+        <div class="m-2">
+            <Button class="center-icon" icon="pi pi-question" aria-label="Question" severity="info" rounded outlined @click="showDialogHelp = true"></Button>
+        </div>
+        <Dialog v-model:visible="showDialogHelp" modal header="Weather API" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+            <h3>What is this</h3>
+            <p>
+                Weather Forecast API that utilizates a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
+                displays the data for the current and future forecasts. This API takes in a location as a paramater and gathers the conditions for the day as 
+                well as other information such as longitute and latitude, UV strength, air pressure, and more that is not currently being displayed. The API is 
+                on a backend server hosted on AWS and was developed using C#.
+            </p>
+        </Dialog>
+    </div>
+
+    <div class="flex md:flex-row flex-column justify-content-center p-5">
+        <div class="flex flex-column md:flex-row gap-2 align-items-center">
+            <label id="labelField" for="movieSearch">Enter Location or Zipcode: </label>
+            <InputText class="w-6" id="weatherSearch" type="text" v-model="townSearch" v-on:keyup.enter="fetchData" placeholder="ex: Miami, Florida"></InputText>
         </div>
         <div class="inputFormItem">
-        <input type="text" placeholder="ex: Miami" v-model="townSearch" v-on:keyup.enter="fetchData" id="inputSearch"
-            name="townSearchField">    
-        </div>
-        <div class="inputFormItem">
-        <button @click="fetchData" id="searchButton">Enter</button>
+            <Button @click="fetchData" type="button" label="Search" :loading="isLoading" icon="pi pi-search"></Button>
         </div>
     </div>
 
@@ -50,17 +63,6 @@
                 Windspeed: {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
             </div>
         </div>
-<!-- 
-        <div id="hourlyForecastDiv">
-            <div id="hourlyForecast" v-for="(hourly, index) in filteredDateTime" :key="index">
-                <h4> {{ timeOnly(hourly.time) }}</h4>
-
-                <p>{{ hourly.temp_f }}</p>
-                <p>{{ hourly.condition.text }}</p>
-                <p>{{ hourly.humidity }}</p>
-                <p>{{ hourly.chance_of_rain }}%</p>
-            </div>
-        </div> -->
 
         <hr class="divider" id="weatherDivider">
 
