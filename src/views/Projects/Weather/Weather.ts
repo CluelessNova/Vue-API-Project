@@ -36,8 +36,7 @@ export default {
             clearTimeout(searchTimeout.Value)
             searchTimeout.value = setTimeout(async () => {
                 if (this.townSearch !== "") {
-                    //axios.get('https://api.jacoblevinsky.com/api/Weather/WeatherForecast?location='+ this.townSearch + '&days=3')
-                    axios.get('https://localhost:44395/api/Weather/WeatherForecast?location='+ this.townSearch + '&days=3')
+                    axios.get('https://api.jacoblevinsky.com/api/Weather/WeatherForecast?location='+ this.townSearch + '&days=3')
                     .then(response => {
                         this.weatherForecast = response.data
                         this.weatherHourly = response.data.forecast.forecastday[0].hour

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Unfounded from '../views/Unfounded/Unfounded.vue'
 import HomeView from '../views/Home/HomeView.vue'
 import AboutView from '../views/About/AboutView.vue'
