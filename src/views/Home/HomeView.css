@@ -4,34 +4,17 @@
     align-content: center;
   }
   
-  .aboutMe-content {
-    margin: 1 auto;
-  }
-  
-  .myName {
-    font-size: 3rem;
-  }
-  
   #myDescription {
     width: 65vw;
     margin-left: auto;
     margin-right: auto;
-    /* border: solid black 1px; */
-  }
-
-  #myDescription-first {
-    font-size: 4rem;
-  }
-  
-  #myDescription-second {
-    font-size: 4rem;
   }
 
   #aboutMe {
     display:flex;
     justify-content: space-around;
     color: #362a6c;
-    padding: 5rem;
+    padding: 2rem;
   }
 
   #changingName {

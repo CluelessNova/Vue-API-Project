@@ -1,6 +1,6 @@
 {
-  "name": "my-vue-project",
-  "version": "0.1.0",
+  "name": "Jake-Portfolio",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -17,6 +17,9 @@
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "portal-vue": "^3.0.0-beta.0",
+    "primeflex": "^3.3.1",
+    "primeicons": "^6.0.1",
+    "primevue": "^3.42.0",
     "vue": "^3.3.4",
     "vue-class-component": "^8.0.0-0",
     "vue-mq": "^1.0.1",

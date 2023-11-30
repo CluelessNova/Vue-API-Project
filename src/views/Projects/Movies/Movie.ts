@@ -1,10 +1,12 @@
 import { ref } from "vue";
-import ProjectsNavBarVue from "@/components/ProjectsNavBar.vue";
 import axios from "axios";
+import Skeleton from 'primevue/skeleton'
+import ProgressSpinner from 'primevue/progressspinner'
 
 export default {
-    components: {
-        ProjectsNavBarVue
+    components:{
+        Skeleton,
+        ProgressSpinner
     },
     data() {
         return {

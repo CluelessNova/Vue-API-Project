@@ -1,6 +1,7 @@
 <template>
-    <projects-nav-bar></projects-nav-bar>
-    <div class="container">
+    <TabMenu :model="items" @tab-change="onTabChange" class="centered-tabs"></TabMenu>
+    <component :is="currentTab"></component>
+    <!-- <div class="container">
         <div class="content-title">
             <h1>I have worked on different projects for both companies and for myself</h1>
         </div>
@@ -35,7 +36,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <style src="./Projects.css"></style>

@@ -1,5 +1,5 @@
 <template>
-  <ProjectsNavBarVue></ProjectsNavBarVue>
+  <!-- <ProjectsNavBarVue></ProjectsNavBarVue> -->
   <h1>Deal Calculator</h1>
   <h5>*Images are from sandbox and not real data/companies</h5>
 

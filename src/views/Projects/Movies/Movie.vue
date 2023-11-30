@@ -1,6 +1,5 @@
 <template>
     <div id="allContent">
-    <ProjectsNavBarVue></ProjectsNavBarVue>
     <h1>Movies</h1>
 
     <div id="inputForm" class="formGroup field">
@@ -15,8 +14,8 @@
         </div>
     </div>
 
-    <div class="loader" v-if="isLoading"></div>
-
+    <!-- <div class="loader" v-if="isLoading"></div> -->
+    
     <div class="errorLoadDiv" v-if="!isloading && errorLoad">
         <h2>Looks like there was an error and nothing was found</h2>
         <h3> {{ errorMessage }}</h3>
@@ -35,7 +34,28 @@
             </div>
         </div>
     </div>
-    </div>
+    <div class="loadingItems" v-if="isLoading">
+        <div class="spinner-container">
+            <ProgressSpinner></ProgressSpinner>
+        </div>
+        <div class="loading-skeletons">
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+        </div>
+    </div>    
+</div>
 </template>
 
 <script src="./Movie.ts" lang="ts"></script>

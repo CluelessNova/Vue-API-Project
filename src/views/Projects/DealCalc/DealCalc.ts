@@ -1,9 +1,4 @@
-import ProjectsNavBarVue from "@/components/ProjectsNavBar.vue"
-
 export default {
-    components: {
-        ProjectsNavBarVue,
-    },
     data() {
         return {
             slideIndex: 0, 
