@@ -1,5 +1,5 @@
 <template>
-    <div id="allContent">
+    <div>
         <div class="flex align-items-center justify-content-center">
             <div class="m-2"><h1 class="">Movie Lookup</h1></div>
             <div class="m-2">
@@ -11,7 +11,7 @@
                 <p>
                     Movie Search API that utilizates a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
                     displays movie posters, movie name, and year the movie was released that is similar to the original search. This API takes in a name for the paramater and 
-                    displays the data shown and other data such as the popularity, language, other other information not displayed. The API is on a backend server hosted on 
+                    displays the data shown and other data such as the popularity, language, other information not displayed. The API is on a backend server hosted on 
                     AWS and was developed using C#.
                 </p>
         </Dialog>
@@ -32,19 +32,16 @@
         <h3> {{ errorMessage }}</h3>
     </div>
 
-    <div v-if="movieResults && !isLoading" id="allMovies">
-        <div v-for="movies in movieResults">
-            <div>
-                <div>
-                    <h3>{{ movies.title }}</h3>
-                    <p>{{ movies.release_date }}</p>
-                </div>
-                <div>
-                    <img id="moviePoster" :src="movies.poster_path">
-                </div>
-            </div>
-        </div>
+    <div class="flex flex-wrap justify-content-around" v-if="movieResults && !isLoading">
+        <Card class="lg:w-2 md:w-4 m-4 shadow-6 border-round-3xl" v-for="movie in movieResults">
+            <template #title> <p class="text-base underline"> {{ movie.title }} </p> </template>
+            <template #content>
+                <h4> {{ movie.release_date }} </h4>
+                <img class="w-9 border-round-xl" :src="movie.poster_path">
+            </template>
+        </Card>
     </div>
+    
     <div class="loadingItems" v-if="isLoading">
         <div class="spinner-container">
             <ProgressSpinner></ProgressSpinner>

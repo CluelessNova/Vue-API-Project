@@ -1,96 +1,11 @@
-#allContent {
-    color: #362a6c;
-}
-
 .errorLoadDiv {
     padding: 2rem;
 }
-
-.titleWeather {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-hr.divider {
-    border: 0;
-    border-top: 2px dashed black;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.inputFormItem {
-    margin: 10px;
-}
-
-.weatherResults {
-    padding: 5px;
-    border-radius: 25px;
-    width: 50%;
-    margin: auto;
-}
-
-.image {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-#weatherDivider {
-    width: 50%;
-}
-
-#location {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
-}
-
-#currentWeather {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-}
-
-#tempurature {
-    padding: 10px;
-}
-
-#labelField {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-#forecastDiv {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-#weatherDiv {
-    background-color:lightslategrey;
-    padding: 10px;
-    margin: 15px;
-    border-radius: 25px;
-    box-shadow: 1px 1px 15px 10px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:lightgray;
-    min-width: 12vw;
-}
-
-#hourlyForecastDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
 
 .loadingItems {
     width: 75%;
     margin: 0 auto;
     position: relative;
-}
-
-.loading-skeletons {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
 }
 
 .skeletonItem {

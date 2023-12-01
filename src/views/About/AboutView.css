@@ -1,25 +1,3 @@
-h1, h2, h3, h4, h5, h6, strong {
-  font-weight: bold;
-}
-
-#allContent {
-  color: #362a6c;
-}
-
-ol {
-  list-style: none;
-}
-
-.aboutme-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.aboutme-description {
-  font-size: 2rem;
-}
-
 .aboutme-title {
   display: flex;
   flex-wrap: wrap;

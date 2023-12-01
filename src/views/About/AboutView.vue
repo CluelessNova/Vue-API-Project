@@ -1,22 +1,22 @@
 <template>
   <div id="allContent">
-  <div id="pageTitle">
+  <div>
     <h1 class="text-3xl lg:text-6xl">Who am I?</h1>
   </div>
 
-  <div class="grid flex-column lg:flex-row">
-    <div class="col lg:col-6">
+  <div class=" flex flex-column lg:flex-row">
+    <div class="col lg:col-6 lg:w-6">
       <h2 class="aboutme-title text-base lg:text-5xl">Get to know me</h2>
-      <div class="aboutme-content-detail">
+      <div>
         <p class="aboutme-description text-sm xl:text-4xl">I am a <strong>software engineer</strong> that works on the <strong>back-end</strong> of web and application development.</p>
         <p class="aboutme-description text-sm xl:text-4xl">I'm an <strong>Eagle Scout</strong> since 2018 and I volunteer at my home town ambulance agency as an EMT.</p>
         <p class="aboutme-description text-sm xl:text-4xl">I am open for any opportunity to learn and expand my knowledge and experience. If you'd like to connect through my <a id="linkedIn" href="https://www.linkedin.com/in/jakelevinsky/">LinkedIn</a>, feel free to reach out. </p>
       </div>
     </div>
 
-    <div class="col lg:col-6">
+    <div class="col lg:col-6 lg:w-6">
       <h2 class="aboutme-title text-base lg:text-5xl">Skills</h2>
-      <div id="skills">
+      <div id="skills" class="flex flex-wrap">
         <div class="aboutme-skills p-3 lg:p-4 text-xs lg:text-2xl" v-for="skill in skills"> {{ skill }} </div>
       </div>
     </div>

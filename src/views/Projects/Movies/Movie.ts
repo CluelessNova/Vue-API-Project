@@ -5,6 +5,7 @@ import ProgressSpinner from 'primevue/progressspinner'
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog';
+import Card from 'primevue/card';
 
 export default {
     components:{
@@ -12,7 +13,8 @@ export default {
         ProgressSpinner,
         InputText,
         Button,
-        Dialog
+        Dialog,
+        Card
     },
     data() {
         return {

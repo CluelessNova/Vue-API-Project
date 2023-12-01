@@ -22,7 +22,7 @@
             <label id="labelField" for="movieSearch">Enter Location or Zipcode: </label>
             <InputText class="w-6" id="weatherSearch" type="text" v-model="townSearch" v-on:keyup.enter="fetchData" placeholder="ex: Miami, Florida"></InputText>
         </div>
-        <div class="inputFormItem">
+        <div class="m-2">
             <Button @click="fetchData" type="button" label="Search" :loading="isLoading" icon="pi pi-search"></Button>
         </div>
     </div>
@@ -33,86 +33,69 @@
     </div>
     
     <div v-if="weatherForecast && !isLoading">
-        <div id="location" class="weatherResults">
-            <!-- City, State/Region, Country -->
-            <h2>
-                {{ weatherForecast.location.name }}, {{ weatherForecast.location.region }}, {{
-                    weatherForecast.location.country
-                }}
-            </h2>
-        </div>
-        <div id="currentWeather" class="weatherResults">
-            <!-- Temp and feelslike -->
-            <div id="tempurature">
-                Tempurature: {{ weatherForecast.current.temp_f }}°F but feels like {{
-                    weatherForecast.current.feelslike_f
-                }}°F
-            </div>
-            <!-- Humidity -->
-            <div id="humidity">
-                Humidity: {{ weatherForecast.current.humidity }}
-            </div>
-            <!-- Condition icon -->
-            <div class="image">
-                <div> <img :src="weatherForecast.current.condition.icon"> </div>
-                <div>{{ weatherForecast.current.condition.text }}</div>
-            </div>
-
-            <!-- Windspeed and direction -->
-            <div id="wind" class="weatherResults">
-                Windspeed: {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
-            </div>
-        </div>
-
-        <hr class="divider" id="weatherDivider">
-
-        <div id="weatherForecast">
-            <h2 class="titleWeather">3-Day Forecast</h2>
-            <div id="forecastDiv">
-                <div v-for="weatherDay in weatherForecast.forecast.forecastday" 
-                id="weatherDiv" 
-                >
-                    <!-- Date -->
-                    <h3> {{ weatherDay.date }}</h3>
-
-                    <!-- Max Temp -->
-                    <p> Max Temp: {{ weatherDay.day.maxtemp_f }}°F</p>
-
-                    <!-- Min Temp -->
-                    <p> Min Temp: {{ weatherDay.day.mintemp_f }}°F</p>
-
-                    <!-- Condition and icon -->
-                    <div class="image">
-                        <div> <img :src="weatherDay.day.condition.icon"></div>
-                        <p> {{ weatherDay.day.condition.text }}</p>
-                    </div>
-
-                    <!-- Chance of rain rain -->
-                    <p> Chance of rain: {{ weatherDay.day.daily_chance_of_rain }}%</p>
-
-                    <hr class="divider" id="forecastDivider">
-
-                    <!-- Sunrise -->
-                    <p> Sunrise: {{ weatherDay.astro.sunrise }}</p>
-
-                    <!-- Sunset -->
-                    <p> Sunset: {{ weatherDay.astro.sunset }}</p>
-
-                    <!-- Moon phase -->
-                    <p> {{ weatherDay.astro.moon_phase }}</p>
+        <Card class="w-9 lg:w-4 m-auto p-4 shadow-4 border-round-xl surface-100">
+            <template #header>
+                 <h2>
+                    {{ weatherForecast.location.name }}, {{ weatherForecast.location.region }}, {{ weatherForecast.location.country }}
+                </h2>
+            </template>
+            <template #content>
+                <p>
+                    Tempurature: {{ weatherForecast.current.temp_f }}°F but feels like {{ weatherForecast.current.feelslike_f }}°F
+                </p>
+                <p>
+                    Humidity: {{ weatherForecast.current.humidity }}
+                </p>
+                <div class="flex justify-content-center align-items-center">
+                    <div> <img :src="weatherForecast.current.condition.icon"> </div>
+                    <div>{{ weatherForecast.current.condition.text }}</div>
                 </div>
-            </div>
-        </div>
+                <p> 
+                    Windspeed: {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
+                </p>
+            </template>
+        </Card>
+
+        <Card class="mx-auto my-4 lg:w-9 w-10 shadow-4 border-round-xl surface-200">
+            <template #header>
+                <h2 class="bg-gray-400 border-round-top-xl">3 Day Forecast</h2>
+            </template>
+            <template #content>
+                <div class="flex flex-wrap justify-content-around">
+                    <Card class="lg:w-3 sm:w-3 w-10 m-4 shadow-6 border-round-3xl surface-100" v-for="weatherDay in weatherForecast.forecast.forecastday">
+                        <template #header> <h3> {{  weatherDay.date }} </h3> </template>
+                        <template #content>
+                            <p> Max Temp: {{ weatherDay.day.maxtemp_f }}°F </p>
+                            <p> Min Temp: {{ weatherDay.day.mintemp_f }}°F </p>
+                            <div>
+                                <div> <img :src="weatherDay.day.condition.icon"></div>
+                                <p> {{ weatherDay.day.condition.text }} </p>
+                            </div>
+                            <p> Chance of rain: {{ weatherDay.day.daily_chance_of_rain }}% </p>
+                            <Divider class="my-3"></Divider>
+                            <p> Sunrise: {{ weatherDay.astro.sunrise }} </p>
+                            <p> Sunset: {{ weatherDay.astro.sunset }} </p>
+                            <p> {{ weatherDay.astro.moon_phase }} </p>
+                        </template>
+                    </Card>
+                </div>
+            </template>
+        </Card>
     </div>
 
     <div class="loadingItems" v-if="isLoading">
         <div class="spinner-container">
             <ProgressSpinner></ProgressSpinner>
         </div>
-        <div class="loading-skeletons">
-            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
-            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
-            <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+        <div>
+            <div class="flex justify-content-center">
+                <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            </div>
+            <div class="flex flex-wrap justify-content-around">
+                <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+                <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+                <Skeleton size="15rem" class="skeletonItem"></Skeleton>
+            </div>
         </div>
     </div>    
 </div>

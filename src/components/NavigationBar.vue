@@ -1,9 +1,9 @@
 <template>
     <Menubar :model="computedItems">
       <template #start>
-        <div class="nav-me">
+        <div class="flex flex-wrap align-items-center">
         <Avatar :image="require('../assets/images/JakePfP.jpg')" id="myPfP" class="mr-2" shape="circle"></Avatar>
-        <h3 class="header-me">Jake Levinsky</h3>
+        <h3>Jake Levinsky</h3>
       </div>
       </template>
   </Menubar>
@@ -74,29 +74,6 @@ export default {
 
 .active-tab {
   background-color: #9aa7cc64;
-}
-
-.nav-me {
-  display: flex;
-  align-items: center;
-}
-.header-me {
-  margin: 5px;
-  font-weight: bold;
-}
-
-#myPfP {
-  transition: .5s;
-}
-
-#myPfP:hover {
-  width: 4em;
-  height: 4em;
-}
-
-#contactLink {
-  text-decoration: none;
-  color: black;
 }
 
 .mr-2 {
