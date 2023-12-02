@@ -9,9 +9,9 @@
         <Dialog v-model:visible="showDialogHelp" modal header="Weather API" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
             <h3>What is this</h3>
             <p>
-                Weather Forecast API that utilizates a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
-                displays the data for the current and future forecasts. This API takes in a location as a paramater and gathers the conditions for the day as 
-                well as other information such as longitute and latitude, UV strength, air pressure, and more that is not currently being displayed. The API is 
+                Weather Forecast API that utilizes a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
+                displays the data for the current and future forecasts. This API takes in a location as a parameter and gathers the conditions for the day as 
+                well as other information such as longitude and latitude, UV strength, air pressure, and more that is not currently being displayed. The API is 
                 on a backend server hosted on AWS and was developed using C#.
             </p>
         </Dialog>

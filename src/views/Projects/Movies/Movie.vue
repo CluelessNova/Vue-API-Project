@@ -9,13 +9,13 @@
             <Dialog v-model:visible="showDialogHelp" modal header="Movie API" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
                 <h3>What is this</h3>
                 <p>
-                    Movie Search API that utilizates a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
-                    displays movie posters, movie name, and year the movie was released that is similar to the original search. This API takes in a name for the paramater and 
+                    Movie Search API that utilizes a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
+                    displays movie posters, movie name, and year the movie was released that is similar to the original search. This API takes in a name for the parameter and 
                     displays the data shown and other data such as the popularity, language, other information not displayed. The API is on a backend server hosted on 
                     AWS and was developed using C#.
                 </p>
-        </Dialog>
-    </div>
+            </Dialog>
+        </div>
 
     <div id="inputForm" class="justify-content-center flex md:flex-row flex-column p-5">
         <div class="flex flex-column md:flex-row gap-2 align-items-center">
