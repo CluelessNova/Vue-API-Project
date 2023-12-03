@@ -1,7 +1,7 @@
  [
     {
         "name": "portfolio-frontend",
-        "image": "200903042756.dkr.ecr.us-east-1.amazonaws.com/portfolio-frontend:v12",
+        "image": "200903042756.dkr.ecr.us-east-1.amazonaws.com/portfolio-frontend:v13",
         "cpu": 256,
         "memory": 512,
         "essential": true,
