@@ -1,13 +1,28 @@
 import { ref } from "vue"
-import ProjectsNavBarVue from '../../../components/ProjectsNavBar.vue'
 import axios from "axios";
+import Skeleton from 'primevue/skeleton'
+import ProgressSpinner from 'primevue/progressspinner'
+import InputText from 'primevue/inputtext'
+import Button from 'primevue/button'
+import Dialog from 'primevue/dialog'
+import Card from 'primevue/card'
+import Divider from 'primevue/divider'
+import Panel from 'primevue/panel'
 
 export default {
-    components: {
-        ProjectsNavBarVue
+    components:{
+        Skeleton,
+        ProgressSpinner,
+        InputText,
+        Button,
+        Dialog,
+        Card,
+        Divider,
+        Panel
     },
     data() {
         return {
+            showDialogHelp: false,
             isLoading: false,
             errorLoad: false,
             errorMessage: null,
@@ -27,7 +42,7 @@ export default {
             clearTimeout(searchTimeout.Value)
             searchTimeout.value = setTimeout(async () => {
                 if (this.townSearch !== "") {
-                    axios.get('https://api.jacoblevinsky.com/api/Weather/WeatherForecast?location='+ this.townSearch + '&days=3')
+                    axios.get('https://api.jacoblevinsky.com/api/Weather/'+ this.townSearch + '/3')
                     .then(response => {
                         this.weatherForecast = response.data
                         this.weatherHourly = response.data.forecast.forecastday[0].hour
