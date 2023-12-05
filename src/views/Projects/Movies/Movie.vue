@@ -40,9 +40,9 @@
 
     <div class="flex flex-wrap justify-content-around" v-if="movieResults && !loadingMovies">
         <Card class="lg:w-2 md:w-4 m-4 shadow-6 border-round-3xl relative" v-for="movie in movieResults" @click="getDetails(movie.id)">
-            <template #title> <p class="text-base underline"> {{ movie.title }} </p> </template>
+            <template #title> <p class="text-base font-bold underline"> {{ movie.title }} </p> </template>
             <template #content>
-                <h4> {{ movie.release_date }} </h4>
+                <h4 class="font-medium"> {{ movie.release_date }} </h4>
                 <img class="w-9 border-round-xl select-none" :src="movie.poster_path">
                 <div class="movie-card-loader" v-if="loadingMovieId === movie.id && loadingDetails">
                     <ProgressSpinner></ProgressSpinner>
@@ -51,15 +51,17 @@
         </Card>
 
         <div v-if="showDetails" class="movie-details flex justify-content-center">
-            <Card class="absolute m-4 shadow-8 border-round-3xl scalein animation-duration-400 movie-details-card animation-iteration-1 lg:w-6 xl:w-4 md:w-9" v-model="movieDetails">
+            <Card class="absolute m-4 shadow-8 border-round-3xl scalein animation-duration-400 movie-details-card animation-iteration-1 lg:w-6 xl:w-4 md:w-9 w-10" v-model="movieDetails">
                 <template #title> 
                     <div class="flex">
-                        <h3 class="mx-auto w-10 underline font-bold"> {{ movieDetails.title }} </h3> 
+                        <h3 class="mx-auto w-9 underline font-bold"> {{ movieDetails.title }} </h3> 
                         <Button class="center-icon absolute movie-detail-exit" v-tooltip="'Exit'" icon="pi pi-times" aria-label="Cancel" severity="secondary" text rounded @click="closeDetails"></Button>
                     </div>
                 </template>
                 <template #content>
                     <p class="font-medium"> Popularity Rating: {{ movieDetails.popularity }} </p>
+                    <p class="font-medium">Rating: {{ movieDetails.vote_average }} </p>
+                    <p class="font-medium">Votes: {{ movieDetails.vote_count }} </p>
                     <Divider class="w-9 mx-auto border-1 border-dashed"></Divider>
                     <div>
                         <h3 class="font-bold underline">Production by:</h3>
@@ -68,11 +70,18 @@
                     <img class="w-6 border-round-xl" :src="movieDetails.poster_path">
                     <p class="font-medium"> {{ movieDetails.tagline }} </p>
                     <p class="font-italic"> "{{ movieDetails.overview }}" </p>
-                    <Accordion>
+                    <br>
+                    <div>
+                        <h3 class="text-left underline font-medium">Genres:</h3>
+                        <ul class="flex flex-column">
+                            <li class="font-medium text-left" v-for="genre in movieDetails.genres">{{ genre.name }} </li>
+                        </ul>
+                    </div>
+                    <!-- <Accordion>
                         <AccordionTab header="Genres">
-                            <p class="font-medium" v-for="genre in movieDetails.genres"> {{ genre.name }} </p>
+                            <p class="font-medium my-2" v-for="genre in movieDetails.genres"> {{ genre.name }} </p>
                         </AccordionTab>
-                    </Accordion>
+                    </Accordion> -->
                 </template>
             </Card>
         </div>

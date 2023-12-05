@@ -73,7 +73,6 @@ export default {
             axios.get('https://api.jacoblevinsky.com/api/Movie/MovieDetails/' + id)
             .then(response => {
                 this.movieDetails = response.data
-                console.log(response.data)
                 this.openDetails()
                 this.loadingDetails = false
             }).catch(error => {

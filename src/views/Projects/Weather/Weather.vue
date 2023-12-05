@@ -47,17 +47,17 @@
             </template>
             <template #content>
                 <p>
-                    Tempurature: {{ weatherForecast.current.temp_f }}°F but feels like {{ weatherForecast.current.feelslike_f }}°F
+                    <span class="font-medium underline">Tempurature:</span> {{ weatherForecast.current.temp_f }}°F ({{ weatherForecast.current.temp_c }}°C) but feels like {{ weatherForecast.current.feelslike_f }}°F ({{ weatherForecast.current.feelslike_c }}°C)
                 </p>
                 <p>
-                    Humidity: {{ weatherForecast.current.humidity }}
+                    <span class="font-medium underline">Humidity:</span> {{ weatherForecast.current.humidity }}%
                 </p>
                 <div class="flex justify-content-center align-items-center">
                     <div> <img :src="weatherForecast.current.condition.icon"> </div>
-                    <div>{{ weatherForecast.current.condition.text }}</div>
+                    <div class="font-bold">{{ weatherForecast.current.condition.text }} </div>
                 </div>
                 <p> 
-                    Windspeed: {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
+                    <span class="font-medium underline">Windspeed:</span> {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
                 </p>
             </template>
         </Card>
@@ -69,19 +69,20 @@
             <template #content>
                 <div class="flex flex-wrap justify-content-around">
                     <Card class="lg:w-3 sm:w-3 w-10 m-4 shadow-6 border-round-3xl surface-100" v-for="weatherDay in weatherForecast.forecast.forecastday">
-                        <template #header> <h3> {{  weatherDay.date }} </h3> </template>
+                        <template #header> <h3 class="font-bold"> {{  weatherDay.date }} </h3> </template>
                         <template #content>
-                            <p> Max Temp: {{ weatherDay.day.maxtemp_f }}°F </p>
-                            <p> Min Temp: {{ weatherDay.day.mintemp_f }}°F </p>
+                            <p> <span class="font-medium underline">Max Temp:</span> {{ weatherDay.day.maxtemp_f }}°F ({{ weatherDay.day.maxtemp_c }}°C)</p>
+                            <p> <span class="font-medium underline">Min Temp:</span> {{ weatherDay.day.mintemp_f }}°F ({{ weatherDay.day.mintemp_c }}°C)</p>
                             <div>
                                 <div> <img :src="weatherDay.day.condition.icon"></div>
-                                <p> {{ weatherDay.day.condition.text }} </p>
+                                <p class="font-bold"> {{ weatherDay.day.condition.text }} </p>
                             </div>
-                            <p> Chance of rain: {{ weatherDay.day.daily_chance_of_rain }}% </p>
+                            <p> <span class="font-medium underline">Chance of rain:</span> {{ weatherDay.day.daily_chance_of_rain }}% </p>
+                            <p> <span class="font-medium underline">Chance of snow:</span> {{ weatherDay.day.daily_chance_of_snow }}% </p>
                             <Divider class="my-3"></Divider>
-                            <p> Sunrise: {{ weatherDay.astro.sunrise }} </p>
-                            <p> Sunset: {{ weatherDay.astro.sunset }} </p>
-                            <p> {{ weatherDay.astro.moon_phase }} </p>
+                            <p> <span class="font-medium underline">Sunrise:</span> {{ weatherDay.astro.sunrise }} </p>
+                            <p> <span class="font-medium underline">Sunset:</span> {{ weatherDay.astro.sunset }} </p>
+                            <p class="font-medium"> {{ weatherDay.astro.moon_phase }} </p>
                         </template>
                     </Card>
                 </div>
