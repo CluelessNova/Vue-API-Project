@@ -6,7 +6,7 @@
 
   <div class=" flex flex-column lg:flex-row">
     <div class="col lg:col-6 lg:w-6">
-      <h2 class="aboutme-title text-base lg:text-5xl">Get to know me</h2>
+      <h2 class="aboutme-title text-base lg:text-5xl flex justify-content-center m-2">Get to know me</h2>
       <div>
         <p class="aboutme-description text-sm xl:text-4xl">I am a <strong>software engineer</strong> that works on the <strong>back-end</strong> of web and application development.</p>
         <p class="aboutme-description text-sm xl:text-4xl">I'm an <strong>Eagle Scout</strong> since 2018 and I volunteer at my home town ambulance agency as an EMT.</p>
@@ -15,13 +15,14 @@
     </div>
 
     <div class="col lg:col-6 lg:w-6">
-      <h2 class="aboutme-title text-base lg:text-5xl">Skills</h2>
-      <div id="skills" class="flex flex-wrap">
+      <h2 class="aboutme-title text-base lg:text-5xl flex justify-content-center m-2">Skills</h2>
+      <div id="skills" class="flex flex-wrap justify-content-center">
         <div class="aboutme-skills p-3 lg:p-4 text-xs lg:text-2xl" v-for="skill in skills"> {{ skill }} </div>
       </div>
     </div>
   </div>
 
+  <h2 class="text-base lg:text-5xl flex justify-content-center mt-5">Timeline of me</h2>
   <Timeline :value="events" align="alternate" class="lg:w-8 lg:m-auto">
     <template #content="slotProps">
       <div class="text-xs lg:text-base">

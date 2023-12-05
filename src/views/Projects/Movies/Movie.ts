@@ -6,6 +6,10 @@ import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
 import Card from 'primevue/card'
+import Accordion from 'primevue/accordion'
+import AccordionTab from 'primevue/accordiontab'
+import Tooltip from 'primevue/tooltip'
+import Divider from 'primevue/divider'
 
 export default {
     components:{
@@ -14,16 +18,24 @@ export default {
         InputText,
         Button,
         Dialog,
-        Card
+        Card,
+        Accordion,
+        AccordionTab,
+        Tooltip,
+        Divider
     },
     data() {
         return {
             showDialogHelp: false,
-            isLoading: false,
+            loadingMovies: false,
+            showDetails: false,
+            loadingDetails: false,
+            loadingMovieId: null,
             errorLoad: false,
             errorMessage: null,
             movieSearch: "",
-            movieResults: undefined
+            movieResults: undefined,
+            movieDetails: undefined
         }
     },
 
@@ -31,7 +43,7 @@ export default {
         async searchMovie() {
             const searchTimeout = ref(null)
  
-            this.isLoading = true
+            this.loadingMovies = true
             this.errorLoad = false
             clearTimeout(searchTimeout.value)
             searchTimeout.value = setTimeout(async () => {
@@ -39,19 +51,46 @@ export default {
                     axios.get('https://api.jacoblevinsky.com/api/Movie/MovieSearch/' + this.movieSearch)
                     .then(response => {
                         this.movieResults = response.data.results
-                        this.isLoading = false
+                        this.loadingMovies = false
                         this.errorLoad = false
                     }).catch(error => {
                         console.error(error)
                         this.errorMessage = error
                         this.errorLoad = true
-                        this.isLoading = false
+                        this.loadingMovies = false
+                        this.movieResults = null
                     })
                     this.movieSearch = ""
                     return
                 }
             }, 30)
+        },
 
+        async getDetails(id) {
+            this.loadingDetails = true
+            this.loadingMovieId = id
+
+            axios.get('https://api.jacoblevinsky.com/api/Movie/MovieDetails/' + id)
+            .then(response => {
+                this.movieDetails = response.data
+                this.openDetails()
+                this.loadingDetails = false
+            }).catch(error => {
+                console.error(error)
+                this.showDetails = false
+                this.loadingDetails = false
+            })
+            return
+        },
+
+        openDetails() {
+            this.showDetails = true
+            document.body.style.overflow = 'hidden'
+        },
+
+        closeDetails() {
+            this.showDetails = false
+            document.body.style.overflow = ''
         }
     }
 }

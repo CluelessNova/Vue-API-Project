@@ -4,15 +4,21 @@
     <div class="flex align-items-center justify-content-center">
         <div class="m-2"><h1 class="">Forecast Search</h1></div>
         <div class="m-2">
-            <Button class="center-icon" icon="pi pi-question" aria-label="Question" severity="info" rounded outlined @click="showDialogHelp = true"></Button>
+            <Button v-tooltip="'More information'" class="center-icon" icon="pi pi-question" aria-label="Question" severity="info" rounded outlined @click="showDialogHelp = true"></Button>
         </div>
         <Dialog v-model:visible="showDialogHelp" modal header="Weather API" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
-            <h3>What is this</h3>
+            <h3 class="font-medium">What is this</h3>
             <p>
-                Weather Forecast API that utilizes a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
+                Weather Forecast API that utilizes a free API from <a v-tooltip.top="'Link to website'" class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
                 displays the data for the current and future forecasts. This API takes in a location as a parameter and gathers the conditions for the day as 
                 well as other information such as longitude and latitude, UV strength, air pressure, and more that is not currently being displayed. The API is 
-                on a backend server hosted on AWS and was developed using C#.
+                on a backend server hosted on AWS and was developed using C#. The API is called using a GET request and the data is returned in JSON format.
+            </p>
+            <br>
+            <h3 class="font-medium">How to use</h3>
+            <p>
+                Enter a location or zipcode in the search bar and click the search button or press enter. When entering a location name, make sure you are percise with the name
+                otherwise you may not get the location you want. The weather forecast will populate with the current conditions and the forecast for the next 3 days.
             </p>
         </Dialog>
     </div>
@@ -41,17 +47,17 @@
             </template>
             <template #content>
                 <p>
-                    Tempurature: {{ weatherForecast.current.temp_f }}°F but feels like {{ weatherForecast.current.feelslike_f }}°F
+                    <span class="font-medium underline">Tempurature:</span> {{ weatherForecast.current.temp_f }}°F ({{ weatherForecast.current.temp_c }}°C) but feels like {{ weatherForecast.current.feelslike_f }}°F ({{ weatherForecast.current.feelslike_c }}°C)
                 </p>
                 <p>
-                    Humidity: {{ weatherForecast.current.humidity }}
+                    <span class="font-medium underline">Humidity:</span> {{ weatherForecast.current.humidity }}%
                 </p>
                 <div class="flex justify-content-center align-items-center">
                     <div> <img :src="weatherForecast.current.condition.icon"> </div>
-                    <div>{{ weatherForecast.current.condition.text }}</div>
+                    <div class="font-bold">{{ weatherForecast.current.condition.text }} </div>
                 </div>
                 <p> 
-                    Windspeed: {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
+                    <span class="font-medium underline">Windspeed:</span> {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
                 </p>
             </template>
         </Card>
@@ -63,19 +69,20 @@
             <template #content>
                 <div class="flex flex-wrap justify-content-around">
                     <Card class="lg:w-3 sm:w-3 w-10 m-4 shadow-6 border-round-3xl surface-100" v-for="weatherDay in weatherForecast.forecast.forecastday">
-                        <template #header> <h3> {{  weatherDay.date }} </h3> </template>
+                        <template #header> <h3 class="font-bold"> {{  weatherDay.date }} </h3> </template>
                         <template #content>
-                            <p> Max Temp: {{ weatherDay.day.maxtemp_f }}°F </p>
-                            <p> Min Temp: {{ weatherDay.day.mintemp_f }}°F </p>
+                            <p> <span class="font-medium underline">Max Temp:</span> {{ weatherDay.day.maxtemp_f }}°F ({{ weatherDay.day.maxtemp_c }}°C)</p>
+                            <p> <span class="font-medium underline">Min Temp:</span> {{ weatherDay.day.mintemp_f }}°F ({{ weatherDay.day.mintemp_c }}°C)</p>
                             <div>
                                 <div> <img :src="weatherDay.day.condition.icon"></div>
-                                <p> {{ weatherDay.day.condition.text }} </p>
+                                <p class="font-bold"> {{ weatherDay.day.condition.text }} </p>
                             </div>
-                            <p> Chance of rain: {{ weatherDay.day.daily_chance_of_rain }}% </p>
+                            <p> <span class="font-medium underline">Chance of rain:</span> {{ weatherDay.day.daily_chance_of_rain }}% </p>
+                            <p> <span class="font-medium underline">Chance of snow:</span> {{ weatherDay.day.daily_chance_of_snow }}% </p>
                             <Divider class="my-3"></Divider>
-                            <p> Sunrise: {{ weatherDay.astro.sunrise }} </p>
-                            <p> Sunset: {{ weatherDay.astro.sunset }} </p>
-                            <p> {{ weatherDay.astro.moon_phase }} </p>
+                            <p> <span class="font-medium underline">Sunrise:</span> {{ weatherDay.astro.sunrise }} </p>
+                            <p> <span class="font-medium underline">Sunset:</span> {{ weatherDay.astro.sunset }} </p>
+                            <p class="font-medium"> {{ weatherDay.astro.moon_phase }} </p>
                         </template>
                     </Card>
                 </div>

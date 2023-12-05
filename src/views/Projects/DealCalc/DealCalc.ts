@@ -1,12 +1,14 @@
 import Galleria from 'primevue/galleria'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
+import Tooltip from 'primevue/tooltip'
 
 export default {
     components: {
         Galleria,
         Button,
-        Dialog
+        Dialog,
+        Tooltip
     },
     data() {
         return {           

@@ -1,3 +1,4 @@
-.centered-tabs .p-tabmenu-nav {
-    justify-content: center; 
+.centered-tabs .p-tabmenu .p-tabmenu-ink-bar {
+    background-color: #0d6efd;
+    height: 3px; 
 }
