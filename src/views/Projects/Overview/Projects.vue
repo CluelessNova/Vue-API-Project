@@ -1,6 +1,6 @@
 <template>
-    <TabMenu :model="items" :activeIndex="activeIndex" @tab-change="onTabChange" class="centered-tabs"></TabMenu>
-    <component :is="currentTab"></component>
+    <TabMenu :model="items" :activeIndex="activeIndex" @tab-change="onTabChange" class="centered-tabs flex justify-content-center"></TabMenu>
+    <component :is="items[activeIndex].component"></component>
 </template>
 
 <style src="./Projects.css"></style>

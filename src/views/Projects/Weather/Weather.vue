@@ -4,15 +4,21 @@
     <div class="flex align-items-center justify-content-center">
         <div class="m-2"><h1 class="">Forecast Search</h1></div>
         <div class="m-2">
-            <Button class="center-icon" icon="pi pi-question" aria-label="Question" severity="info" rounded outlined @click="showDialogHelp = true"></Button>
+            <Button v-tooltip="'More information'" class="center-icon" icon="pi pi-question" aria-label="Question" severity="info" rounded outlined @click="showDialogHelp = true"></Button>
         </div>
         <Dialog v-model:visible="showDialogHelp" modal header="Weather API" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
-            <h3>What is this</h3>
+            <h3 class="font-medium">What is this</h3>
             <p>
-                Weather Forecast API that utilizes a free API from <a class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
+                Weather Forecast API that utilizes a free API from <a v-tooltip.top="'Link to website'" class="rapidApi_link" href="https://rapidapi.com/hub" target="_blank">RapidAPI</a> and 
                 displays the data for the current and future forecasts. This API takes in a location as a parameter and gathers the conditions for the day as 
                 well as other information such as longitude and latitude, UV strength, air pressure, and more that is not currently being displayed. The API is 
-                on a backend server hosted on AWS and was developed using C#.
+                on a backend server hosted on AWS and was developed using C#. The API is called using a GET request and the data is returned in JSON format.
+            </p>
+            <br>
+            <h3 class="font-medium">How to use</h3>
+            <p>
+                Enter a location or zipcode in the search bar and click the search button or press enter. When entering a location name, make sure you are percise with the name
+                otherwise you may not get the location you want. The weather forecast will populate with the current conditions and the forecast for the next 3 days.
             </p>
         </Dialog>
     </div>

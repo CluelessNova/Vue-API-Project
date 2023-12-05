@@ -7,7 +7,8 @@ import 'primeicons/primeicons.css';
 import 'primevue/resources/primevue.min.css'
 import 'primevue/resources/themes/md-light-indigo/theme.css'
 import 'primeflex/primeflex.css'
+import Tooltip from 'primevue/tooltip';
 
 const app = createApp(App)
 
-app.use(router).use(PrimeVue, { ripple: true }).mount('#app')
+app.use(router).use(PrimeVue, { ripple: true }).directive('tooltip', Tooltip).mount('#app')

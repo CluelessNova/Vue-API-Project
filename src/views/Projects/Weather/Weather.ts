@@ -8,6 +8,7 @@ import Dialog from 'primevue/dialog'
 import Card from 'primevue/card'
 import Divider from 'primevue/divider'
 import Panel from 'primevue/panel'
+import Tooltip from 'primevue/tooltip'
 
 export default {
     components:{
@@ -18,7 +19,8 @@ export default {
         Dialog,
         Card,
         Divider,
-        Panel
+        Panel,
+        Tooltip
     },
     data() {
         return {
