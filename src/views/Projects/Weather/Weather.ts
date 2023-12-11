@@ -9,6 +9,8 @@ import Card from 'primevue/card'
 import Divider from 'primevue/divider'
 import Panel from 'primevue/panel'
 import Tooltip from 'primevue/tooltip'
+import Accordion from 'primevue/accordion'
+import AccordionTab from 'primevue/accordiontab'
 
 export default {
     components:{
@@ -20,6 +22,8 @@ export default {
         Card,
         Divider,
         Panel,
+        Accordion,
+        AccordionTab,
         Tooltip
     },
     data() {
