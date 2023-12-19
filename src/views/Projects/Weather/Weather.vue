@@ -39,7 +39,7 @@
     </div>
     
     <div v-if="weatherForecast && !isLoading">
-        <Card class="w-9 lg:w-4 m-auto p-4 shadow-4 border-round-xl surface-100">
+        <Card class="w-11 md:w-9 xl:w-5 m-auto p-4 shadow-4 border-round-xl surface-300">
             <template #header>
                  <h2>
                     {{ weatherForecast.location.name }}, {{ weatherForecast.location.region }}, {{ weatherForecast.location.country }}
@@ -57,23 +57,43 @@
                     <div class="font-bold">{{ weatherForecast.current.condition.text }} </div>
                 </div>
                 <p> 
-                    <span class="font-medium underline">Windspeed:</span> {{ weatherForecast.current.wind_mph }} mph - {{ weatherForecast.current.wind_dir }}
+                    <span class="font-medium underline">Windspeed:</span> {{ weatherForecast.current.wind_mph }} mph ({{ weatherForecast.current.wind_kph }} kph) - {{ weatherForecast.current.wind_dir }}
                 </p>
+                <br>
+                <Accordion>
+                    <AccordionTab header="Hourly Forecast">
+                        <div class="flex flex-row overflow-x-auto">
+                            <div class="border-1 border-round-sm m-2 p-2 surface-300" v-for="forecast in weatherHourly" >
+                                <p class="underline font-bold">{{ forecast.time }} </p>
+                                <p> <span class="font-medium underline">Tempurature:</span> {{ forecast.temp_f }}°F  ({{ forecast.temp_c }}°C)</p>
+                                <p> <span class="font-medium underline">Feels like:</span> {{ forecast.feelslike_f }}°F ({{ forecast.feelslike_c }}°C) </p>
+                                <div class="flex justify-content-center align-items-center m-3 xl:mx-6">
+                                    <div> <img :src="forecast.condition.icon"></div>
+                                    <p class="font-bold"> {{ forecast.condition.text }} </p>
+                                </div>
+                                <p> <span class="font-medium underline">Wind:</span> {{ forecast.wind_mph }} mph ({{ forecast.wind_kph }} kph) - {{ forecast.wind_dir }} </p>
+                                <p> <span class="font-medium underline">Chance of rain:</span> {{ forecast.chance_of_rain }}% </p>
+                                <p> <span class="font-medium underline">Precipitation amount:</span> {{ forecast.precip_in }}" </p>
+                                <p> <span class="font-medium underline">Chance of snow:</span> {{ forecast.chance_of_snow }}% </p>
+                            </div>
+                        </div>
+                    </AccordionTab>
+                </Accordion>
             </template>
         </Card>
 
-        <Card class="mx-auto my-4 lg:w-9 w-10 shadow-4 border-round-xl surface-200">
+        <Card class="mx-auto my-4 lg:w-9 w-10 shadow-4 border-round-xl surface-300">
             <template #header>
                 <h2 class="bg-gray-400 border-round-top-xl">3 Day Forecast</h2>
             </template>
             <template #content>
                 <div class="flex flex-wrap justify-content-around">
-                    <Card class="lg:w-3 sm:w-3 w-10 m-4 shadow-6 border-round-3xl surface-100" v-for="weatherDay in weatherForecast.forecast.forecastday">
+                    <Card class="lg:w-3 sm:w-3 w-10 m-4 shadow-6 border-round-3xl surface-200" v-for="weatherDay in weatherForecast.forecast.forecastday">
                         <template #header> <h3 class="font-bold"> {{  weatherDay.date }} </h3> </template>
                         <template #content>
                             <p> <span class="font-medium underline">Max Temp:</span> {{ weatherDay.day.maxtemp_f }}°F ({{ weatherDay.day.maxtemp_c }}°C)</p>
                             <p> <span class="font-medium underline">Min Temp:</span> {{ weatherDay.day.mintemp_f }}°F ({{ weatherDay.day.mintemp_c }}°C)</p>
-                            <div>
+                            <div class="flex justify-content-center align-items-center">
                                 <div> <img :src="weatherDay.day.condition.icon"></div>
                                 <p class="font-bold"> {{ weatherDay.day.condition.text }} </p>
                             </div>
