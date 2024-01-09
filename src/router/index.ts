@@ -7,6 +7,7 @@ import Weather from '../views/Projects/Weather/Weather.vue'
 import Movies from '../views/Projects/Movies/Movie.vue'
 import Contact from '../views/Contact/Contact.vue'
 import DealCalc from '../views/Projects/DealCalc/DealCalc.vue'
+import ChatBot from '../views/Projects/ChatBot/ChatBot.vue'
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/projects/dealcalc',
       name: 'dealcalc',
       component: DealCalc
+    },
+    {
+      path: '/projects/chatbot',
+      name: 'chatbot',
+      component: ChatBot
     },
     {
       path: '/projects',
