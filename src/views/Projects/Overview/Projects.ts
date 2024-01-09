@@ -18,7 +18,7 @@ export default {
                 { label: 'Movies', component: Movies },
                 { label: 'Weather', component: Weather },
                 { label: 'Deal Calculator', component: DealCalc },
-                { label: 'Chat Bot', component: ChatBot }
+                { label: 'Movie Chat Bot Game', component: ChatBot }
             ],
             activeIndex: 0
           };

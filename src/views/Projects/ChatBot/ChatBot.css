@@ -1,23 +1,35 @@
 .conversation {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    height: 200px;
-    overflow-y: scroll;
-    width: 50%; /* Adjust the width as desired */
-    margin: auto;
+    border: solid #797575;
+    background-color: #b3b1b1;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f100;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #5c5b5b;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #8b8b8b;
 }
 
 .user {
     background-color: #f0f0f0;
-    padding: 5px;
-    margin-bottom: 5px;
+    text-align: right;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .assistant {
-    background-color: #e0e0e0;
-    padding: 5px;
-    margin-bottom: 5px;
+    background-color: #635f5f;
+    text-align: left;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .loading-indicator {

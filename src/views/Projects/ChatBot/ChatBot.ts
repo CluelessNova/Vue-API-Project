@@ -1,12 +1,22 @@
 import axios from "axios";
+import InputText from 'primevue/inputtext';
 
 export default {
+    components: {
+        InputText
+    },
     data() {
         return {
-            messages: [],
+            messages: [
+                { role: 'assistant', text: "Hello! I'm MovieChat, your friendly movie guessing game partner." +
+                " Ask me about any movie or let's play a guessing game!", type: 'bot-message' }
+            ],
             userInput: '',
             isGenerating: false
         };
+    },
+    updated() {
+        this.scrollToBottom();
     },
     methods: {
         async sendMessage() {
@@ -14,16 +24,15 @@ export default {
                 const userMessage = { role: 'user', text: this.userInput, type: 'user-message' };
                 this.messages.push(userMessage);
                 this.isGenerating = true;
+                this.userInput = '';
 
                 try {
                     const response = await axios.post('https://localhost:44395/api/OpenAi/conversation', {
-                        userPrompt: this.userInput,
+                        userPrompt: userMessage.text,
                         conversationHistory: this.messages.filter(m => m.type === 'user-message').map(m => m.text)
                     });
-
                     const botMessage = { role: 'assistant', text: response.data, type: 'bot-message' };
                     this.messages.push(botMessage);
-                    this.userInput = '';
                     this.isGenerating = false;
                 } catch (error) {
                     console.error(error);
@@ -31,6 +40,10 @@ export default {
                     this.isGenerating = false;
                 }
             }
+        },
+        scrollToBottom() {
+            const container = this.$refs.conversationContainer;
+            container.scrollTop = container.scrollHeight;
         }
     }
 };
