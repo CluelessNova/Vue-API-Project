@@ -27,7 +27,7 @@ export default {
                 this.userInput = '';
 
                 try {
-                    const response = await axios.post('https://localhost:44395/api/OpenAi/conversation', {
+                    const response = await axios.post('https://api.jacoblevinsky.com/api/OpenAi/conversation', {
                         userPrompt: userMessage.text,
                         conversationHistory: this.messages.filter(m => m.type === 'user-message').map(m => m.text)
                     });
