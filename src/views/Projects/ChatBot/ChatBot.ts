@@ -8,7 +8,7 @@ export default {
     data() {
         return {
             messages: [
-                { role: 'assistant', text: "Hello! I'm MovieChat, your friendly movie guessing game partner." +
+                { Role: 'assistant', Text: "Hello! I'm MovieChat, your friendly movie guessing game partner." +
                 " Ask me about any movie or let's play a guessing game!", type: 'bot-message' }
             ],
             userInput: '',
@@ -21,25 +21,26 @@ export default {
     methods: {
         async sendMessage() {
             if (this.userInput.trim() !== '') {
-                const userMessage = { role: 'user', text: this.userInput, type: 'user-message' };
+                const userMessage = { Role: 'user', Text: this.userInput, type: 'user-message' };
                 this.messages.push(userMessage);
                 this.isGenerating = true;
                 this.userInput = '';
 
                 try {
-                    const response = await axios.post('https://api.jacoblevinsky.com/api/OpenAi/conversation', {
-                        userPrompt: userMessage.text,
-                        conversationHistory: this.messages.filter(m => m.type === 'user-message').map(m => m.text)
+                        const response = await axios.post('https://api.jacoblevinsky.com/api/OpenAi/conversation', {
+                        conversationHistory: this.messages.filter(m => m.type === 'user-message').map(m => ({ Role:m.Role, Text: m.Text }))
                     });
-                    const botMessage = { role: 'assistant', text: response.data, type: 'bot-message' };
+                    const botMessage = { Role: 'assistant', Text: response.data, type: 'bot-message' };
                     this.messages.push(botMessage);
+                    console.log(response.data);
                     this.isGenerating = false;
                 } catch (error) {
-                    console.error(error);
+                    console.error(error.response.data);
                     this.userInput = '';
                     this.isGenerating = false;
                 }
             }
+            console.log(this.messages); 
         },
         scrollToBottom() {
             const container = this.$refs.conversationContainer;
